@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="811.0" prefWidth="1829.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.starterfile.HelloController">
+  <tabs>
+    <Tab text="Settings and Info">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" onMouseMoved="#setUpSettings" prefHeight="540.0" prefWidth="1327.0">
+           <children>
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fcff" height="200.0" layoutX="22.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
+              <TextArea fx:id="troopDescriptionBox" editable="false" layoutX="29.0" layoutY="48.0" prefHeight="161.0" prefWidth="271.0" />
+              <TabPane fx:id="troopDescriptions" layoutX="22.0" layoutY="14.0" onMouseClicked="#troopSelectionChanged" prefHeight="34.0" prefWidth="283.0" tabClosingPolicy="UNAVAILABLE">
+                <tabs>
+                </tabs>
+              </TabPane>
+              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fcff" height="200.0" layoutX="23.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="176.0" />
+              <Slider fx:id="budgetSlider" layoutX="41.0" layoutY="262.0" max="100000.0" min="10000.0" onDragDetected="#sliderMoved" />
+              <Label layoutX="52.0" layoutY="236.0" text="Budget (10000-100000)" />
+              <Label layoutX="37.0" layoutY="285.0" text="Num Moves Per Turn (2-10)" />
+              <Slider fx:id="movesSlider" layoutX="41.0" layoutY="309.0" max="10.0" min="2.0" onDragDetected="#sliderMoved" />
+                  <Button fx:id="restartGame" layoutX="1503.0" layoutY="35.0" mnemonicParsing="false" text="Reset Game" />
+           </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Battle">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="706.0" prefWidth="1327.0">
+               <children>
+                   <GridPane fx:id="gPane" layoutX="14.0" layoutY="15.0">
+
+                   </GridPane>
+                   <Button fx:id="battleBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#battleStart" text="Start Battle" />
+                   <ListView fx:id="availableTroops" layoutX="1106.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                   <Label fx:id="moneyLeftLabel" layoutX="1106.0" layoutY="237.0" text="Money Left:" visible="false" />
+                   <ProgressBar fx:id="moneyLeftBar" layoutX="1174.0" layoutY="237.0" prefHeight="18.0" prefWidth="132.0" progress="0.0" visible="false" />
+                   <Button fx:id="startFightingBtn" layoutX="1106.0" layoutY="264.0" mnemonicParsing="false" onAction="#startFighting" text="Start Fighting" visible="false" />
+                   <Rectangle fx:id="troopInfoRect" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="1106.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="200.0" />
+                   <Label fx:id="troopNameLbl" layoutX="1115.0" layoutY="311.0" text="Troop Info" visible="false" />
+                   <Label fx:id="troopHealthLbl" layoutX="1115.0" layoutY="339.0" text="Troop Info" visible="false" />
+                   <ListView fx:id="updates" layoutX="1106.0" layoutY="511.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                   <Label fx:id="turnLabel" layoutX="14.0" layoutY="704.0" text="Label" visible="false" />
+                   <Button fx:id="removeTroopBtn" layoutX="1117.0" layoutY="458.0" mnemonicParsing="false" onAction="#removeTroop" text="Remove Troop" visible="false" />
+                   <Button fx:id="breakRock" layoutX="1117.0" layoutY="428.0" mnemonicParsing="false" onAction="#breakRock" text="Break Rock" visible="false" />
+                   <Button fx:id="placeRock" layoutX="1117.0" layoutY="368.0" mnemonicParsing="false" onAction="#placeRock" text="Place Rock" visible="false" />
+                  <TextField fx:id="directionBox" layoutX="1116.0" layoutY="398.0" promptText="Enter a cardinal direction for where you want to place your rock (eg NW)" visible="false" />
+                  <Rectangle fx:id="shootingInfoRect" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="500.0" layoutY="670.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="217.0" />
+                  <Label fx:id="troopAttackedLbl" layoutX="514.0" layoutY="681.0" text="Label" visible="false" />
+                  <Label fx:id="chanceOfHittingLabel" layoutX="514.0" layoutY="712.0" text="Label" visible="false" />
+                  <Button fx:id="shootBtn" layoutX="514.0" layoutY="738.0" mnemonicParsing="false" onAction="#shootTroop" text="Shoot?" visible="false" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
